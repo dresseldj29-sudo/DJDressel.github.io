@@ -9,17 +9,17 @@
 
 export const firebaseConfig = {
 
-    apiKey: "HIER_EINTRAGEN",
+    apiKey: "AIzaSyB3hh9aSPnIRilRg5KkZ-Hw_iUk7LjBp40",
 
-    authDomain: "HIER_EINTRAGEN",
+    authDomain: "meinminecraftserver-c8d05.firebaseapp.com",
 
-    projectId: "HIER_EINTRAGEN",
+    projectId: "meinminecraftserver-c8d05",
 
-    storageBucket: "HIER_EINTRAGEN",
+    storageBucket: "meinminecraftserver-c8d05.firebasestorage.app",
 
-    messagingSenderId: "HIER_EINTRAGEN",
+    messagingSenderId: "309913832239",
 
-    appId: "HIER_EINTRAGEN"
+    appId: "1:309913832239:web:3ff8915e744180ac476fda"
 
 };
 
