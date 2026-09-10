@@ -1,0 +1,702 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    background: #050505;
+    overflow-x: hidden;
+}
+
+
+/* Hintergrund */
+
+.background {
+    position: fixed;
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.35),
+            rgba(0, 0, 0, 0.75)
+        ),
+        url("background.png");
+
+    background-size: cover;
+    background-position: center;
+
+    z-index: -2;
+}
+
+
+.background::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0,0,0,0.15),
+            rgba(0,0,0,0.85)
+        );
+
+    z-index: -1;
+}
+
+
+/* Navigation */
+
+.navbar {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 75px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 5%;
+
+    background: rgba(0,0,0,0.75);
+
+    backdrop-filter: blur(15px);
+
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+
+    z-index: 100;
+}
+
+
+.logo {
+    font-size: 22px;
+    font-weight: 900;
+}
+
+
+.logo span {
+    color: #00aaff;
+}
+
+
+.navbar nav {
+    display: flex;
+    gap: 25px;
+}
+
+
+.navbar nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+
+    transition: 0.2s;
+}
+
+
+.navbar nav a:hover {
+    color: #00aaff;
+}
+
+
+/* Hero */
+
+.hero {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 120px 20px 80px;
+}
+
+
+.hero-content {
+    max-width: 900px;
+}
+
+
+.badge {
+    display: inline-block;
+
+    padding: 10px 20px;
+
+    background: rgba(0,170,255,0.2);
+
+    border: 1px solid #00aaff;
+
+    border-radius: 50px;
+
+    margin-bottom: 25px;
+}
+
+
+.hero h1 {
+    font-size: clamp(50px, 9vw, 110px);
+
+    line-height: 0.95;
+
+    font-weight: 1000;
+
+    text-shadow:
+        0 5px 20px black,
+        0 0 30px rgba(0,170,255,0.5);
+}
+
+
+.hero h1 span {
+    display: block;
+    color: #00aaff;
+}
+
+
+.hero p {
+    max-width: 700px;
+
+    margin: 30px auto;
+
+    font-size: 20px;
+
+    line-height: 1.6;
+
+    color: #ddd;
+}
+
+
+/* Buttons */
+
+.buttons {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+}
+
+
+.button {
+    display: inline-block;
+
+    border: none;
+
+    padding: 15px 25px;
+
+    border-radius: 10px;
+
+    color: white;
+
+    font-weight: bold;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    text-decoration: none;
+
+    transition: 0.2s;
+}
+
+
+.button:hover {
+    transform: translateY(-3px);
+
+    filter: brightness(1.15);
+}
+
+
+.primary {
+    background: #008cff;
+
+    box-shadow:
+        0 8px 30px rgba(0,140,255,0.4);
+}
+
+
+.secondary {
+    background: rgba(255,255,255,0.12);
+
+    border: 1px solid rgba(255,255,255,0.25);
+}
+
+
+/* Sections */
+
+.section {
+    max-width: 1100px;
+
+    margin: auto;
+
+    padding: 100px 20px;
+}
+
+
+.section-title {
+    text-align: center;
+
+    margin-bottom: 40px;
+}
+
+
+.section-title span {
+    font-size: 40px;
+}
+
+
+.section-title h2 {
+    font-size: 40px;
+
+    margin: 10px 0;
+}
+
+
+.section-title p {
+    color: #bbb;
+
+    font-size: 18px;
+}
+
+
+/* Server */
+
+.server-card {
+    background: rgba(0,0,0,0.75);
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    border-radius: 20px;
+
+    padding: 35px;
+
+    backdrop-filter: blur(15px);
+
+    box-shadow: 0 20px 70px rgba(0,0,0,0.5);
+}
+
+
+.status-row {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 30px;
+
+    margin-bottom: 30px;
+}
+
+
+.status-label {
+    color: #aaa;
+
+    font-size: 13px;
+
+    margin-bottom: 8px;
+}
+
+
+.status {
+    font-size: 25px;
+
+    font-weight: bold;
+}
+
+
+.status.online {
+    color: #35ff7a;
+}
+
+
+.status.offline {
+    color: #ff4040;
+}
+
+
+.status.maintenance {
+    color: #ffae35;
+}
+
+
+.big-number {
+    font-size: 40px;
+
+    font-weight: 900;
+}
+
+
+.server-info {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 15px;
+}
+
+
+.info-box {
+    padding: 20px;
+
+    background: rgba(255,255,255,0.06);
+
+    border-radius: 12px;
+}
+
+
+.info-box span {
+    display: block;
+
+    color: #aaa;
+
+    font-size: 12px;
+
+    margin-bottom: 8px;
+}
+
+
+.info-box strong {
+    font-size: 18px;
+
+    word-break: break-all;
+}
+
+
+.copy-button {
+    margin-top: 20px;
+
+    padding: 12px 20px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+}
+
+
+/* Social */
+
+.social-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+
+.social-card {
+    padding: 35px;
+
+    text-align: center;
+
+    background: rgba(0,0,0,0.7);
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    border-radius: 18px;
+
+    text-decoration: none;
+
+    color: white;
+
+    transition: 0.25s;
+}
+
+
+.social-card:hover {
+    transform: translateY(-7px);
+
+    border-color: #00aaff;
+
+    background: rgba(0,100,180,0.25);
+}
+
+
+.social-icon {
+    font-size: 45px;
+
+    margin-bottom: 15px;
+}
+
+
+.social-card h3 {
+    margin-bottom: 10px;
+}
+
+
+.social-card p {
+    color: #aaa;
+}
+
+
+/* Wünsche */
+
+.wish-card {
+    max-width: 650px;
+
+    margin: auto;
+
+    padding: 30px;
+
+    background: rgba(0,0,0,0.75);
+
+    border-radius: 18px;
+
+    border: 1px solid rgba(255,255,255,0.15);
+}
+
+
+input,
+textarea,
+select {
+    width: 100%;
+
+    padding: 15px;
+
+    margin: 8px 0 18px;
+
+    background: rgba(255,255,255,0.08);
+
+    border: 1px solid rgba(255,255,255,0.2);
+
+    border-radius: 9px;
+
+    color: white;
+
+    outline: none;
+
+    font-size: 15px;
+}
+
+
+select option {
+    background: #111;
+}
+
+
+textarea {
+    min-height: 150px;
+
+    resize: vertical;
+}
+
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #00aaff;
+}
+
+
+label {
+    display: block;
+
+    color: #bbb;
+
+    font-size: 14px;
+
+    margin-top: 5px;
+}
+
+
+/* Login */
+
+.login-card {
+    max-width: 450px;
+
+    margin: auto;
+
+    padding: 30px;
+
+    background: rgba(0,0,0,0.8);
+
+    border-radius: 18px;
+
+    border: 1px solid rgba(255,255,255,0.15);
+}
+
+
+#loginMessage,
+#wishMessage {
+    margin-top: 15px;
+
+    color: #00aaff;
+}
+
+
+/* Owner */
+
+.owner-panel {
+    transition: 0.3s;
+}
+
+
+.hidden {
+    display: none !important;
+}
+
+
+.admin-card {
+    margin-bottom: 25px;
+
+    padding: 30px;
+
+    background: rgba(0,0,0,0.8);
+
+    border-radius: 18px;
+
+    border: 1px solid rgba(255,255,255,0.15);
+}
+
+
+.admin-card h3 {
+    margin-bottom: 25px;
+
+    font-size: 25px;
+}
+
+
+.wish-admin {
+    background: rgba(255,255,255,0.06);
+
+    padding: 20px;
+
+    border-radius: 12px;
+
+    margin-bottom: 12px;
+}
+
+
+.wish-admin strong {
+    display: block;
+
+    margin-bottom: 8px;
+}
+
+
+.wish-admin p {
+    color: #ccc;
+
+    margin-bottom: 15px;
+}
+
+
+.delete-wish {
+    background: #d92828;
+
+    color: white;
+
+    border: none;
+
+    padding: 9px 14px;
+
+    border-radius: 7px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+}
+
+
+.logout {
+    background: #b82020;
+
+    width: 100%;
+}
+
+
+/* Footer */
+
+footer {
+    padding: 50px 20px;
+
+    text-align: center;
+
+    background: rgba(0,0,0,0.85);
+}
+
+
+.footer-logo {
+    font-size: 25px;
+
+    font-weight: 900;
+
+    margin-bottom: 15px;
+}
+
+
+footer p {
+    color: #888;
+
+    margin: 5px;
+}
+
+
+/* Mobile */
+
+@media (max-width: 750px) {
+
+    .navbar {
+        height: auto;
+
+        padding: 15px;
+
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+
+    .navbar nav {
+        gap: 12px;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+
+
+    .hero h1 {
+        font-size: 55px;
+    }
+
+
+    .server-info {
+        grid-template-columns: 1fr;
+    }
+
+
+    .status-row {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+
+    .social-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
